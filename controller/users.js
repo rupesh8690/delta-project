@@ -7,7 +7,7 @@ module.exports.signup = async(req,res) =>{
     let {username,email,password }= req.body;
     const newUser = new User( {email,username})
     const registerUser = await User.register(newUser,password);
-    console.log(registerUser);
+    // console.log(registerUser);
     //if user is signed up loging to the ssystem directly
     // read this documentation https://www.passportjs.org/concepts/authentication/login/
     req.login(registerUser, (err) =>{
