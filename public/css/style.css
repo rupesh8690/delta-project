@@ -122,3 +122,7 @@ body{
 /* map */
 #map { height: 500px; 
 }
+
+body{
+    overflow-x: hidden;
+}
