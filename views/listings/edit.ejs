@@ -1,76 +1,75 @@
 <% layout("layout/boilerplate.ejs") %>
-<body>
-  <form
-    action="/listings/<%= result.id %>?_method=PUT"
-    method="post"
-    enctype="multipart/form-data"
-  >
-    <div class="row mt-3">
-      <div class="col-md-8 offset-2">
-        <h3>Edit your list</h3>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input
-            type="text"
-            name="listing[title]"
-            value="<%= result.title %>"
-            class="form-control"
-          />
-        </div>
 
-        <div class="mb-3">
-          <label for="description" class="form-label">description</label>
-          <textarea name="listing[description]" class="form-control">
-          <%= result.description %></textarea
-          >
-        </div>
-
-        <div class="mb-3">
-          Original Listing image <br />
-          <img src="<%= originalImageUrl %>" width="300" height="150" />
+<form
+  action="/listings/<%= result.id %>?_method=PUT"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <div class="row mt-3">
+    <div class="col-md-8 col-sm-12  offset-lg-2 ">
+      <h3>Edit your list</h3>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          name="listing[title]"
+          value="<%= result.title %>"
+          class="form-control"
+        />
       </div>
-      
-        <div class="mb-3">
-          <label for="Image" class="form-label">Image</label>
-          <input type="file" name="listing[image]" class="form-control" />
-        </div>
 
-        <div class="row">
-          <div class="mb-3 col-md-4">
-            <label for="Price" class="form-label">Price</label>
-            <input
-              type="number"
-              name="listing[price]"
-              value="<%= result.price %>"
-              class="form-control"
-            />
-          </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">description</label>
+        <textarea name="listing[description]" class="form-control">
+          <%= result.description %></textarea
+        >
+      </div>
 
-          <div class="mb-3 col-md-8">
-            <label for="Country" class="form-label">Country</label>
-            <input
-              type="text"
-              name="listing[country]"
-              value="<%= result.country %>"
-              class="form-control"
-            />
-          </div>
-        </div>
+      <div class="mb-3">
+        Original Listing image <br />
+        <img src="<%= originalImageUrl %>" width="300" height="150" />
+      </div>
 
-        <div class="mb-3">
-          <label for="Location" class="form-label">Location</label>
+      <div class="mb-3">
+        <label for="Image" class="form-label">Image</label>
+        <input type="file" name="listing[image]" class="form-control" />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="Price" class="form-label">Price</label>
           <input
-            type="text"
-            name="listing[location]"
-            value="<%= result.location %>"
+            type="number"
+            name="listing[price]"
+            value="<%= result.price %>"
             class="form-control"
           />
         </div>
 
-        <div class="mb-3">
-          <button class="btn btn-dark add-btn">Submit</button>
+        <div class="mb-3 col-md-8">
+          <label for="Country" class="form-label">Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            value="<%= result.country %>"
+            class="form-control"
+          />
         </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="Location" class="form-label">Location</label>
+        <input
+          type="text"
+          name="listing[location]"
+          value="<%= result.location %>"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-dark add-btn">Submit</button>
       </div>
     </div>
-  </form>
-</body>
+  </div>
+</form>
