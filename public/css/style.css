@@ -130,3 +130,8 @@ body{
      height: 15rem;
 }
 
+/* button of login and sign up */
+.btn-login, .btn-signup {
+    background-color:  #fe424d !important;
+    border: none !important;
+}
