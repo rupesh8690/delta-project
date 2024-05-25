@@ -135,3 +135,14 @@ body{
     background-color:  #fe424d !important;
     border: none !important;
 }
+
+/* for login box */
+.password-box {
+    position: relative;
+  }
+
+  .password-box i {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }

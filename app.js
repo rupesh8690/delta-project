@@ -26,24 +26,24 @@ const path=require("path");
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
-const MONGO_URL= "mongodb://127.0.0.1:27017/wanderlust";
-// const dbUrl= process.env.ATLASDB_URL;
+// const MONGO_URL= "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl= process.env.ATLASDB_URL;
 
-// const store =MongoStore.create({
-//   mongoUrl: dbUrl,
-//   crypto: {
-//     secret: process.env.SECRET,
-//   },
-//   touchAfter: 24*3600, // for lazy update after 24 hours
+const store =MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24*3600, // for lazy update after 24 hours
 
 
-// });
+});
 
-// store.on("error", () =>{
-//   console.log("ERROR in MONGO SESSION STORE",err);
-// })
+store.on("error", () =>{
+  console.log("ERROR in MONGO SESSION STORE",err);
+})
 const sessionOptions ={
-  // store,
+  store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
@@ -120,8 +120,8 @@ main().then((res) => {
 
 async function main()
 {
-    await mongoose.connect(MONGO_URL);
-    // await mongoose.connect(dbUrl);
+    // await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 
 // app.get('/', (req, res) => {
